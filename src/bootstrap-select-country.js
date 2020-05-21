@@ -38,25 +38,6 @@ let countrypicker = function(opts) {
 						value="${country.code}">${country.name}</option>`);
 				});
 
-				/* after bootstrap-select finished loading or selection changed add flag to the select btn */
-				$select.on('loaded.bs.select change', function (e) {
-					/* which country-codes are selected? */
-					var $selectedOptions = $(this).find(':selected');
-					var countrycodes = [];
-					$selectedOptions.each(function() {
-						countrycodes.push($(this).data('tokens').toLowerCase());
-					});
-
-					var $btn = $(this).parent().find('.btn .filter-option.pull-left');
-					$btn.removeClass().addClass('filter-option pull-left');
-
-					/* for now only show the flag if only one country is selected */
-					if (countrycodes.length === 1) {
-						countrycodes.forEach((countrycode) => {
-							$btn.addClass(`flag ${countrycode}`);
-						 });
-					}
-				});
 		} else {
 			//for each build list without flag
 			$.each(countries, function (index, country) {
