@@ -32,7 +32,7 @@ let countrypicker = function(opts) {
 				/* create option for each existing country */
 				$.each(countries, function (index, country) {
 					options.push(`<option
-						data-tokens="${country.code}"
+						data-tokens="${country.code} ${country.name}"
 						data-icon="inline-flag flag ${country.code.toLowerCase()}"
 						class="option-with-flag"
 						value="${country.code}">${country.name}</option>`);
